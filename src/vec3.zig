@@ -213,6 +213,30 @@ pub fn Vec3(comptime T: type) type {
                 math.max(lhs.z, rhs.z),
             );
         }
+
+        // Construct a new vector whose components are the absolute value of the
+        // input.
+        pub fn abs(in: Self) Self {
+            return Self.new(@fabs(in.x), @fabs(in.y), @fabs(in.z));
+        }
+
+        // Construct a new vector whose components are the truncated value of
+        // the input.
+        pub fn trunc(in: Self) Self {
+            return Self.new(@trunc(in.x), @trunc(in.y), @trunc(in.z));
+        }
+
+        // Construct a new vector whose components are the ceil'd value of the
+        // input.
+        pub fn ceil(in: Self) Self {
+            return Self.new(@ceil(in.x), @ceil(in.y), @ceil(in.z));
+        }
+
+        // Construct a new vector whose components are the round'd value of the
+        // input.
+        pub fn round(in: Self) Self {
+            return Self.new(@round(in.x), @round(in.y), @round(in.z));
+        }
     };
 }
 
